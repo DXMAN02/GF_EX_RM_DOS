@@ -21,10 +21,11 @@ from rclpy.node import Node
 # ===== TODO: puntos de SU variante: (x [m], y [m], θ [rad]) =====
 PUNTOS = [
     # (x, y, theta),
-    (1.0, 0.0, 0.0),
-    (1.0, 1.0, math.pi / 2),
-    (0.0, 1.0, math.pi),
-    (0.0, 0.0, 0.0),
+    # Variante F
+    (1.0, -1.5, 0.0),
+    (2.0,  0.0, math.pi),
+    (1.0,  1.5, 0.0),
+    (0.0,  0.0, 0.0),
 ]
 
 L1, L2, L3 = 1.0, 1.0, 1.5     # Λ = diag(λ1, λ2, λ3)
@@ -64,9 +65,16 @@ def ley_control(pose, meta):
     u = c * ax + s * ay
     v = -s * ax + c * ay
     r = L3 * eth
-    
+
     # TODO 4: saturar la NORMA de (u, v) a V_MAX conservando la dirección, y |r| a R_MAX
-    raise NotImplementedError
+    norma = math.hypot(u, v)
+    if norma > V_MAX:
+        k = V_MAX / norma
+        u *= k
+        v *= k
+    r = max(-R_MAX, min(R_MAX, r))
+
+    return u, v, r, False
 
 
 class IrAPuntos(Node):
