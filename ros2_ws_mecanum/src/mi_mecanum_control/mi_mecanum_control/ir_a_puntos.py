@@ -21,6 +21,10 @@ from rclpy.node import Node
 # ===== TODO: puntos de SU variante: (x [m], y [m], θ [rad]) =====
 PUNTOS = [
     # (x, y, theta),
+    (1.0, 0.0, 0.0),
+    (1.0, 1.0, math.pi / 2),
+    (0.0, 1.0, math.pi),
+    (0.0, 0.0, 0.0),
 ]
 
 L1, L2, L3 = 1.0, 1.0, 1.5     # Λ = diag(λ1, λ2, λ3)
@@ -43,7 +47,14 @@ def ley_control(pose, meta):
     Devuelve (u, v, r, alcanzado)
     """
     # TODO 1: errores de posición (en odom) y de orientación (envuelto)
+    ex = xd - x
+    ey = yd - y
+    eth = envolver(thd - phi)
+
     # TODO 2: ¿alcanzado? (TOL_POS y TOL_ANG) -> devolver 0, 0, 0, True
+    if math.hypot(ex, ey) < TOL_POS and abs(eth) < TOL_ANG:
+        return 0.0, 0.0, 0.0, True
+        
     # TODO 3: ξ = J(φ)⁺ Λ e
     # TODO 4: saturar la NORMA de (u, v) a V_MAX conservando la dirección, y |r| a R_MAX
     raise NotImplementedError
