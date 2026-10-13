@@ -1,0 +1,9 @@
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/uninstall.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/mi_robot_mecanum_uninstall.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/test.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/edit_cache.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/rebuild_cache.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/list_install_components.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/install.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/install/local.dir
+/home/dos/ros2_ws_mecanum_estudiantes/ros2_ws_mecanum/build/mi_robot_mecanum/CMakeFiles/install/strip.dir
