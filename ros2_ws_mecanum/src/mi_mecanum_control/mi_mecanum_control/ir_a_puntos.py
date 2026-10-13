@@ -54,8 +54,17 @@ def ley_control(pose, meta):
     # TODO 2: ¿alcanzado? (TOL_POS y TOL_ANG) -> devolver 0, 0, 0, True
     if math.hypot(ex, ey) < TOL_POS and abs(eth) < TOL_ANG:
         return 0.0, 0.0, 0.0, True
-        
+
     # TODO 3: ξ = J(φ)⁺ Λ e
+    # J(φ) es la rotación de φ (3x3, ortogonal), así que J⁺ = J⁻¹ = Jᵀ.
+    # Λe en odom -> se rota al marco del robot con Jᵀ.
+    ax = L1 * ex
+    ay = L2 * ey
+    c, s = math.cos(phi), math.sin(phi)
+    u = c * ax + s * ay
+    v = -s * ax + c * ay
+    r = L3 * eth
+    
     # TODO 4: saturar la NORMA de (u, v) a V_MAX conservando la dirección, y |r| a R_MAX
     raise NotImplementedError
 
