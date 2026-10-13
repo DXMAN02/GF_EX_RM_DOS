@@ -47,6 +47,9 @@ def ley_control(pose, meta):
     pose = (x, y, φ)      meta = (xd, yd, θd)
     Devuelve (u, v, r, alcanzado)
     """
+    x, y, phi = pose
+    xd, yd, thd = meta
+
     # TODO 1: errores de posición (en odom) y de orientación (envuelto)
     ex = xd - x
     ey = yd - y
@@ -57,8 +60,8 @@ def ley_control(pose, meta):
         return 0.0, 0.0, 0.0, True
 
     # TODO 3: ξ = J(φ)⁺ Λ e
-    # J(φ) es la rotación de φ (3x3, ortogonal), así que J⁺ = J⁻¹ = Jᵀ.
-    # Λe en odom -> se rota al marco del robot con Jᵀ.
+    # Holonómico: J(φ) es la rotación 3x3 (invertible), así que J⁺ = J⁻¹ = Jᵀ.
+    # Λe está en odom -> se rota al marco del robot con Jᵀ.
     ax = L1 * ex
     ay = L2 * ey
     c, s = math.cos(phi), math.sin(phi)
